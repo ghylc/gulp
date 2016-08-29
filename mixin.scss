@@ -1,0 +1,13 @@
+@import "variables";
+
+// 生成不同dpr下的字号，淘宝的flexiable.js会给页面计算出一个dpr值，这样就能与前面算出来的dpr值做匹配了
+// dpr的值有3个，分别是1、2、3
+@mixin font-dpr($size: $globalFontSize){
+  font-size: $size / 2 + px;
+  [data-dpr="2"] & {
+    font-size: $size + px;
+  }
+  [data-dpr="3"] & {
+    font-size: $size * 1.5 + px;
+  }
+}
